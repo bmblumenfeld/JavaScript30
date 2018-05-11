@@ -1,0 +1,15 @@
+{
+  "name": "jdk",
+  "version": "1.0.0",
+  "description": "Brings Drum Kits to the people! ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=8080 --open=./index-START.html"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}
