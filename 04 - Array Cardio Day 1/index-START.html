@@ -31,25 +31,55 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+    let getFifteens = function (inventors) {
+      return inventors.filter(function (person){
+        return person.year >= 1500 && person.year < 1600    
+      })  
+    }
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
-
+    let getNames = function(inventors) {
+      return inventors.map(function (person){
+        return person.first + ' ' + person.last;   
+      })  
+    }
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-
+    let getInOrderByAge = function(inventors) {
+      return inventors.sort(function (a,b){
+        return a.year - b.year
+      })  
+    }
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    let lengthAlive = function(inventors){ 
+      return inventors.reduce(function(acc,person){
+        acc += (person.passed - person.year)
+        return acc; 
+      },0)
+    }
 
     // 5. Sort the inventors by years lived
-
+    let sortedAges = function(inventors){
+      let ages = inventors.map(function(person){return {name: person.first + ' ' + person.last, age: person.passed - person.year}});
+      return ages.sort(function(a,b){return a.age - b.age})  
+    }
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    
+    let getBlvdDe = function (blvds) {
+      return blvds.reduce(function(acc,blvd){
+        let de = blvd.match(/( de )/);
+        if (de) {
+          acc.push(blvd);  
+        }
+        return acc;
+      },[]);  
+    }
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-
+    
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
